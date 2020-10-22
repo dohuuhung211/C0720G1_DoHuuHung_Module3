@@ -32,3 +32,7 @@ alter table BorrowOrder
 add foreign key (fk_student_number) references students(student_number),
 add foreign key (fk_id_book) references books(id_book),
 add primary key (fk_student_number, fk_id_book);
+insert into students (student_number, student_name, address, email, image) 
+values(1,'Hung','Bình thai 1','hung@gmail.com','image'); 
+insert into books (id_book ,name_book, type_book, fk_id_cg) 
+values(1, 'khong gian', 'sieu nhien', 1); 
