@@ -1,0 +1,100 @@
+body{
+    width: 1020px;
+    height: 1000px;
+}
+#top a img{
+    padding-top: 5px;
+}
+#top a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+#top h3{
+    margin: -38px 0 0 50px;
+
+}
+#top a:hover{
+   color: red;
+}
+#top{
+    width: 100%;
+    height: 50px;
+    background-color: #2C7ABE;
+    margin: -8px 0 0 -8px;
+    padding: 0 250px 0 250px;
+}
+#truyen_hay{
+    text-align: center;
+    width: 100%;
+    height: 30px;
+    padding: 10px 250px 0 250px;
+    margin: 0 0 0 -8px;
+    background: #FAEBD7;
+}
+#truyen_hay a{
+    text-decoration: none;
+}
+#content{
+    width: 100%;
+    padding: 0 250px 0 250px;
+    height: 700px;
+    background-color: #EEEEEE;
+    margin-left: -8px;
+}
+#content-left{
+    width: 66%;
+    height: 500px;
+    background-color: white;
+    display: inline-block;
+    margin-top: 20px;
+}
+#content-left h3{
+    color: #2F52B2;
+    margin: 5px;
+}
+#content-right{
+    width: 32%;
+    height: 500px;
+    float: right;
+    background-color: white;
+    margin-top: 20px;
+}
+nav{
+    padding: 5px;
+    text-align: center;
+}
+nav a{
+    border-radius: 3px;
+    background-color: #555555;
+    color: white;
+    text-decoration: none;
+    padding: 6px;
+    float: left;
+    margin: -6px 5px 3px 2px;
+}
+#content-left .anh{
+    width: 31%;
+}
+#content-left .anh a{
+    text-decoration: none;
+}
+#content-left .anh img{
+    width: 31%;
+    height: 300px;
+    margin: 8px 0 -20px 9px;
+
+}
+#content-left .anh .title {
+    width: 31%;
+    opacity: 0.9;
+    height: 50px;
+    padding: 5px 0 4px 0;
+    margin-bottom: 20px;
+    margin-left: -212.5px;
+    background: rgba(0,0,0,0.9);
+    color: #fff;
+    text-align: center;
+    display: inline-block;
+}

@@ -1,0 +1,27 @@
+body{
+    width: 600px;
+    height: auto;
+    text-align: justify;
+}
+hr{
+    margin-top: -20px;
+    width: 100%;
+}
+.mo_ta{
+    margin-bottom: 20px;
+    font-size: 17px;
+}
+.in_dam{
+    font-weight: bold;
+    font-size: 17px;
+}
+.mau_chu{
+    color: #1a0099;
+}
+sup{
+    color: #1a0099;
+}
+p{
+    text-indent: 30px;
+    font-size: 17px;
+}
