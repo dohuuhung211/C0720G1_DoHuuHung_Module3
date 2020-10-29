@@ -130,6 +130,15 @@ VALUES (1, 'Hữu Hưng', 2, 2, 3, '1995/11/22', '201666868', 500, '0334904905',
 (3, 'Văn Hùng', 1, 4, 3, '1991/07/02', '236843854', 600, '0935353548', 'vanhung@gmail.com', 'Hội An'),
 (4, 'Nguyễn Đình Khánh', 4, 3, 2, '1990/09/06', '201875972', 700, '0906687423', 'khanh@gmail.com', 'Quảng Nam'),
 (5, 'Trần Thị Kim Chi', 3, 2, 1, '1989/12/30', '201485232', 500, '0901197832', 'chi@gmail.com', 'Đà Nẵng');
+INSERT INTO `case_study_01`.`hopdong` (`idHopDong`, `idNhanVien`, `idKhachHang`, `idDichVu`, `ngayLamHopDong`, `ngayKetThuc`, `tienDatCoc`, `tongTien`) 
+VALUES (1, 2, 1, 3, '2020/05/22', '2020/10/25', 200, 1000),
+(2, 3, 3, 2, '2020/02/12', '2020/10/30', 150, 1100),
+(3, 2, 2, 1, '2020/02/24', '2021/01/15', 300, 1500),
+(4, 2, 1, 1, '2020/10/05', '2020/10/10', 100, 800);
+INSERT INTO `case_study_01`.`dichvu` (`idDichVu`, `tenDichVu`, `dienTich`, `soTang`, `soNguoiToiDa`, `chiPhiThue`, `idKieuThue`, `idLoaiDichVu`, `trangThai`) VALUES 
+(1, 'Villa', 100, 5, 15, 500, 1, 1, 'Còn phòng'),
+(2, 'House', 80, 3, 10, 350, 2, 2, 'Còn phòng'),
+(3, 'Room', 65, 3, 8, 200, 2, 1, 'Hết phòng');
 -- task 2:
 select * from nhanVien 
 where (hoTen like 'H%' or hoTen like 'T%' or hoTen like 'K%') and hoTen < 16;
@@ -138,11 +147,59 @@ select * from khachHang
 where ((year(now()) - year(khachHang.ngaySinh)) > 18 and (year(now()) - year(khachHang.ngaySinh)) < 50)
 and (khachHang.diaChi = 'Đà Nẵng' or khachHang.diaChi = 'Quảng Trị');
 -- task 4:
-select khachHang.tenKhachHang, count(hopdong.idKhachHang) from khachHang 
+select khachHang.hoTen, count(hopdong.idKhachHang) from khachHang 
 join hopDong on khachHang.idKhachHang = hopDong.idKhachHang
 join loaiKhach on khachHang.idLoaiKhach = loaiKhach.idLoaiKhach
+group by hopDong.idKhachHang
+order by hopDong.idKhachHang;
+-- task 5:
+select khachHang.idKhachHang, khachHang.hoTen, loaiKhach.tenLoaiKhach, hopDong.idHopDong, dichVu.tenDichVu, hopDong.ngayLamHopDong,
+hopDong.ngayKetThuc, (dichVu.chiPhiThue + (hopDongChiTiet.soLuong * dichVuDiKem.gia)) as 'tong tien' from khachHang
+join loaiKhach on khachHang.idLoaiKhach = loaiKhach.idLoaiKhach 
+join hopDong on hopDong.idKhachHang = khachHang.idKhachHang
+join dichVu on dichVu.idDichVu = hopDong.idDichVu
+join hopDongChiTiet on hopDongChiTiet.idHopDong = hopDong.idHopDong
+join dichvudikem on dichvudikem.idDichVuDiKem = hopdongchitiet.idDichVuDiKem
+group by khachhang.idKhachHang 
+union
+Select khachHang.idKhachHang, khachHang.hoTen, loaiKhach.tenLoaiKhach, 
+hopDong.idHopDong, dichVu.tenDichVu, hopDong.ngayLamHopDong, hopDong.ngayKetThuc,
+sum(dichVu.chiPhiThue) as 'tong tien'
+from khachHang
+join loaiKhach on khachHang.idLoaiKhach = loaiKhach.idLoaiKhach
+join hopDong on khachHang.idKhachHang = hopDong.idKhachHang
+join dichVu on hopDong.idDichVu = dichVu.idDichVu
+group by khachHang.idKhachHang;
 
+-- task 6
+select dichVu.iddichvu, dichvu.tendichvu, dichvu.dientich, dichvu.chiphithue, loaidichvu.tenloaidichvu
+from dichvu
+left join loaidichvu on dichvu.idLoaiDichVu = loaidichvu.idLoaiDichVu
+left join hopdong on dichvu.idDichVu = hopdong.iddichvu
+where ((year(hopdong.ngaylamhopdong) < 2019))
+group by dichvu.idDichVu
+union
+Select dichVu.iddichvu, dichvu.tendichvu, dichvu.dientich, dichvu.chiphithue, loaidichvu.tenloaidichvu 
+from dichvu
+left join loaidichvu on dichvu.idloaidichvu = loaidichvu.idLoaiDichVu
+left join hopdong on dichvu.idDichVu = hopdong.iddichvu
+where  hopdong.idHopDong = null;
 
-
-
-
+select khachhang.idkhachhang, khachhang.hoten, loaikhach.tenloaikhach, hopdong.idhopdong, 
+dichvu.tendichvu, hopdong.ngaylamhopdong, hopdong.ngayKetThuc, (dichvu.chiphithue + (hopdongchitiet.soLuong * dichvudikem.gia))
+as 'tong tien' from khachhang
+right join loaikhach on khachhang.idLoaiKhach = loaikhach.idLoaiKhach 
+right join hopdong on hopdong.idKhachHang = khachhang.idKhachHang 
+right join dichvu on dichvu.idDichVu = hopdong.idDichVu
+right join hopdongchitiet on hopdongchitiet.idHopDong = hopdong.idHopDong 
+right join dichvudikem on dichvudikem.idDichVuDiKem = hopdongchitiet.idDichVuDiKem
+group by khachhang.idKhachHang
+union
+Select khachHang.idKhachHang, khachHang.hoTen, loaiKhach.tenLoaiKhach, 
+hopDong.idHopDong, dichVu.tenDichVu, hopDong.ngayLamHopDong, hopDong.ngayKetThuc,
+sum(dichVu.chiPhiThue) as 'tong tien'
+from khachHang
+right join loaiKhach on khachHang.idLoaiKhach = loaiKhach.idLoaiKhach
+right join hopDong on khachHang.idKhachHang = hopDong.idKhachHang
+right join dichVu on hopDong.idDichVu = dichVu.idDichVu
+group by khachHang.idKhachHang;
