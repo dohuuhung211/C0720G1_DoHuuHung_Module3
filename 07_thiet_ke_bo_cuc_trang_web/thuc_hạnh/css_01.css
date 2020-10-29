@@ -1,0 +1,13 @@
+div{
+    border: 10px solid ;
+    height: auto;
+    border-color: red blue black violet;
+    width: 800px;
+    margin-left: 300px;
+    padding: 10px;
+}
+p{
+    border: 5px dotted red;
+    padding: 10px;
+    font-family: "Berlin Sans FB";
+}

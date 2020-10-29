@@ -153,53 +153,48 @@ join loaiKhach on khachHang.idLoaiKhach = loaiKhach.idLoaiKhach
 group by hopDong.idKhachHang
 order by hopDong.idKhachHang;
 -- task 5:
-select khachHang.idKhachHang, khachHang.hoTen, loaiKhach.tenLoaiKhach, hopDong.idHopDong, dichVu.tenDichVu, hopDong.ngayLamHopDong,
-hopDong.ngayKetThuc, (dichVu.chiPhiThue + (hopDongChiTiet.soLuong * dichVuDiKem.gia)) as 'tong tien' from khachHang
-join loaiKhach on khachHang.idLoaiKhach = loaiKhach.idLoaiKhach 
-join hopDong on hopDong.idKhachHang = khachHang.idKhachHang
-join dichVu on dichVu.idDichVu = hopDong.idDichVu
-join hopDongChiTiet on hopDongChiTiet.idHopDong = hopDong.idHopDong
-join dichvudikem on dichvudikem.idDichVuDiKem = hopdongchitiet.idDichVuDiKem
-group by khachhang.idKhachHang 
-union
-Select khachHang.idKhachHang, khachHang.hoTen, loaiKhach.tenLoaiKhach, 
-hopDong.idHopDong, dichVu.tenDichVu, hopDong.ngayLamHopDong, hopDong.ngayKetThuc,
-sum(dichVu.chiPhiThue) as 'tong tien'
-from khachHang
-join loaiKhach on khachHang.idLoaiKhach = loaiKhach.idLoaiKhach
-join hopDong on khachHang.idKhachHang = hopDong.idKhachHang
-join dichVu on hopDong.idDichVu = dichVu.idDichVu
-group by khachHang.idKhachHang;
+select khachhang.idkhachhang, khachhang.hoten, loaikhach.tenloaikhach, hopdong.idhopdong, 
+dichvu.tendichvu, hopdong.ngaylamhopdong, hopdong.ngayKetThuc, hopdongchitiet.soLuong, dichvu.chiPhiThue, dichvudikem.gia, 
+(dichvu.chiphithue + (hopdongchitiet.soLuong * dichvudikem.gia))
+as 'tong tien' from khachhang
+left join loaikhach on khachhang.idLoaiKhach = loaikhach.idLoaiKhach 
+left join hopdong on hopdong.idKhachHang = khachhang.idKhachHang 
+left join dichvu on dichvu.idDichVu = hopdong.idDichVu
+left join hopdongchitiet on hopdongchitiet.idHopDong = hopdong.idHopDong 
+left join dichvudikem on dichvudikem.idDichVuDiKem = hopdongchitiet.idDichVuDiKem
+group by khachhang.idKhachHang;
 
 -- task 6
-select dichVu.iddichvu, dichvu.tendichvu, dichvu.dientich, dichvu.chiphithue, loaidichvu.tenloaidichvu
+select dichVu.iddichvu, dichvu.tendichvu, dichvu.dientich, dichvu.chiphithue, loaidichvu.tenloaidichvu, hopdong.ngayLamHopDong 
 from dichvu
-left join loaidichvu on dichvu.idLoaiDichVu = loaidichvu.idLoaiDichVu
-left join hopdong on dichvu.idDichVu = hopdong.iddichvu
-where ((year(hopdong.ngaylamhopdong) < 2019))
-group by dichvu.idDichVu
-union
-Select dichVu.iddichvu, dichvu.tendichvu, dichvu.dientich, dichvu.chiphithue, loaidichvu.tenloaidichvu 
-from dichvu
-left join loaidichvu on dichvu.idloaidichvu = loaidichvu.idLoaiDichVu
-left join hopdong on dichvu.idDichVu = hopdong.iddichvu
-where  hopdong.idHopDong = null;
+join loaidichvu on dichvu.idLoaiDichVu = loaidichvu.idLoaiDichVu
+join hopdong on dichvu.idDichVu = hopdong.iddichvu 
+where not (month(hopdong.ngaylamhopdong) in (1,2,3) and year(hopdong.ngaylamhopdong) = 2019);
 
-select khachhang.idkhachhang, khachhang.hoten, loaikhach.tenloaikhach, hopdong.idhopdong, 
-dichvu.tendichvu, hopdong.ngaylamhopdong, hopdong.ngayKetThuc, (dichvu.chiphithue + (hopdongchitiet.soLuong * dichvudikem.gia))
-as 'tong tien' from khachhang
-right join loaikhach on khachhang.idLoaiKhach = loaikhach.idLoaiKhach 
-right join hopdong on hopdong.idKhachHang = khachhang.idKhachHang 
-right join dichvu on dichvu.idDichVu = hopdong.idDichVu
-right join hopdongchitiet on hopdongchitiet.idHopDong = hopdong.idHopDong 
-right join dichvudikem on dichvudikem.idDichVuDiKem = hopdongchitiet.idDichVuDiKem
-group by khachhang.idKhachHang
+-- task 7
+select dichvu.iddichvu, khachhang.idKhachHang, dichvu.tendichvu, dichvu.dientich, dichvu.soNguoiToiDa, dichvu.chiphithue, 
+loaidichvu.tenloaidichvu, hopdong.ngayLamHopDong from dichvu
+join loaidichvu on loaidichvu.idLoaiDichVu = dichvu.idLoaiDichVu 
+join hopdong on hopdong.iddichvu = dichvu.idDichVu 
+join khachhang on khachhang.idKhachHang = hopdong.idKhachHang 
+where (year(hopdong.ngaylamhopdong) = 2018) and not (year(hopdong.ngaylamhopdong) = 2019);
+
+-- task 8: hien thi thong tin hotenkhachhang khong trung nhau theo 3 cach
+-- cach 1:
+select khachhang.idkhachhang, khachhang.hoTen from khachhang group by khachhang.hoTen;
+-- cach 2:
+select distinct khachhang.hoten from khachhang;
+-- cach3:
+select khachhang.hoten from khachhang 
 union
-Select khachHang.idKhachHang, khachHang.hoTen, loaiKhach.tenLoaiKhach, 
-hopDong.idHopDong, dichVu.tenDichVu, hopDong.ngayLamHopDong, hopDong.ngayKetThuc,
-sum(dichVu.chiPhiThue) as 'tong tien'
-from khachHang
-right join loaiKhach on khachHang.idLoaiKhach = loaiKhach.idLoaiKhach
-right join hopDong on khachHang.idKhachHang = hopDong.idKhachHang
-right join dichVu on hopDong.idDichVu = dichVu.idDichVu
-group by khachHang.idKhachHang;
+select khachhang.hoten from khachhang;
+-- task 9
+select month(hopdong.ngaylamhopdong) 'thang', count(month(hopdong.ngaylamhopdong)) as 'so nguoi dat phong', 
+sum(tongtien) as 'doanh thu thang'
+from hopdong where year(hopdong.ngaylamhopdong) = 2019
+group by month(hopdong.ngaylamhopdong)
+order by month(hopdong.ngaylamhopdong);
+
+
+
+
