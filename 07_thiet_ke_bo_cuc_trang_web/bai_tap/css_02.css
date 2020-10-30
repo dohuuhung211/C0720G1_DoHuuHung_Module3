@@ -96,4 +96,30 @@ nav img{
     margin-left: -15px;
     margin-bottom: -7px;
 }
+#content-mid a{
+    text-decoration: none;
+    float: right;
+    margin: -10px 15px 0 0;
+    color: #4f4d38;
+}
+#content-mid a:hover{
+    text-decoration: underline;
+    color: #555555;
+}
+#content-mid span{
+    position: relative;
+    top: 8px;
+    left: 7px;
+}
+#content-mid h4{
+    float: left;
+    width: 30%;
+    text-align: center;
+    margin: 0 0 10px 10px;
+    font-weight: normal;
+}
+#content-mid h4:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
 
