@@ -189,12 +189,50 @@ select khachhang.hoten from khachhang
 union
 select khachhang.hoten from khachhang;
 -- task 9
-select month(hopdong.ngaylamhopdong) 'thang', count(month(hopdong.ngaylamhopdong)) as 'so nguoi dat phong', 
+select month(hopdong.ngaylamhopdong) as 'thang', count(month(hopdong.ngaylamhopdong)) as 'so nguoi dat phong', 
 sum(tongtien) as 'doanh thu thang'
 from hopdong where year(hopdong.ngaylamhopdong) = 2019
 group by month(hopdong.ngaylamhopdong)
 order by month(hopdong.ngaylamhopdong);
-
-
+-- task 10
+select hopdong.idhopdong, hopdong.ngaylamhopdong, hopdong.ngayKetThuc, hopdong.tienDatCoc, 
+count(hopdongchitiet.idDichVuDiKem) as SoLuongDichVuDiKem from hopdong
+inner join hopdongchitiet on hopdong.idhopdong = hopdongchitiet.idhopdong 
+group by hopdongchitiet.idhopdong;
+-- task 11
+-- select khachhang.idkhachhang, khachhang.hoten, dichvudikem.tendichvudikem from khachhang 
+-- join hopdong on hopdong.idkhachhang = hopdong.idkhachhang
+-- join hopdongchitiet on hopdongchitiet.idhopdong = hopdong.idHopDong
+-- join dichvudikem on dichvudikem.idDichVuDiKem = hopdongchitiet.idDichVuDiKem 
+-- join loaiKhach on loaikhach.idLoaiKhach = khachhang.idLoaiKhach 
+-- where loaikhach.tenloaikhach = 'Diamond' and khachhang.diaChi in ('Vinh', 'Quảng Ngãi')
+-- group by khachhang.idKhachHang;
+select khachhang.idkhachhang, khachhang.hoten, dichvudikem.tendichvudikem from dichvudikem 
+join hopdongchitiet on hopdongchitiet.idDichVuDiKem = dichvudikem.idDichVuDiKem 
+join hopdong on hopdong.idHopDong = hopdongchitiet.idhopdong
+join khachhang on khachhang.idkhachhang = hopdong.idkhachhang
+join loaikhach on loaikhach.idLoaiKhach = khachhang.idloaikhach 
+where loaikhach.tenloaikhach = 'Diamond' and (khachhang.diaChi = 'Vinh' or khachhang.diaChi = 'Quảng Ngãi');
+-- task 12
+Select hopdong.idhopdong, khachhang.hoten as tenKH, nhanvien.hoten as tenNV, khachhang.sdt, dichvu.tendichvu,
+count(hopdongchitiet.iddichvudikem), hopdong.tiendatcoc from hopdong
+left join nhanvien on nhanvien.idnhanvien = hopdong.idnhanvien
+left join khachhang on khachhang.idkhachhang = hopdong.idkhachhang
+left join dichvu on dichvu.iddichvu = hopdong.iddichvu
+left join hopdongchitiet on hopdongchitiet.idhopdong = hopdong.idhopdong
+left join dichvudikem on dichvudikem.iddichvudikem = hopdongchitiet.iddichvudikem 
+where month(hopdong.ngaylamhopdong) in (10,11,12) and year(hopdong.ngaylamhopdong) = 2019
+and khachhang.idkhachhang not in 
+(select hopdong.idkhachhang from hopdong where month(hopdong.ngaylamhopdong) in(1,2,3,4,5,6))
+group by khachhang.hoten;
+-- task 13
+Create view dichvudikem_max
+as (select dichvudikem.tendichvudikem as ten, (sum(hopdongchitiet.soluong)) as tongtien from dichvudikem
+join hopdongchitiet on hopdongchitiet.iddichvudikem = dichvudikem.idDichVuDiKem 
+group by hopdongchitiet.idDichVuDiKem);
+drop view dichvudikem_max;
+select ten, max(tongtien) as tongtien from dichvudikem_max
+group by ten
+having (tongtien) in (select max(tongtien) from dichvudikem_max);
 
 
