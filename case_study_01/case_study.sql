@@ -141,7 +141,7 @@ INSERT INTO `case_study_01`.`dichvu` (`idDichVu`, `tenDichVu`, `dienTich`, `soTa
 (3, 'Room', 65, 3, 8, 200, 2, 1, 'Hết phòng');
 -- task 2:
 select * from nhanVien 
-where (hoTen like 'H%' or hoTen like 'T%' or hoTen like 'K%') and hoTen < 16;
+where (hoTen like 'H%' or hoTen like 'T%' or hoTen like 'K%') and length(hoTen) < 16;
 -- task 3:
 select * from khachHang 
 where ((year(now()) - year(khachHang.ngaySinh)) > 18 and (year(now()) - year(khachHang.ngaySinh)) < 50)
@@ -155,14 +155,14 @@ order by hopDong.idKhachHang;
 -- task 5:
 select khachhang.idkhachhang, khachhang.hoten, loaikhach.tenloaikhach, hopdong.idhopdong, 
 dichvu.tendichvu, hopdong.ngaylamhopdong, hopdong.ngayKetThuc, hopdongchitiet.soLuong, dichvu.chiPhiThue, dichvudikem.gia, 
-(dichvu.chiphithue + (hopdongchitiet.soLuong * dichvudikem.gia))
+sum(dichvu.chiphithue + (hopdongchitiet.soLuong * dichvudikem.gia))
 as 'tong tien' from khachhang
 left join loaikhach on khachhang.idLoaiKhach = loaikhach.idLoaiKhach 
 left join hopdong on hopdong.idKhachHang = khachhang.idKhachHang 
 left join dichvu on dichvu.idDichVu = hopdong.idDichVu
 left join hopdongchitiet on hopdongchitiet.idHopDong = hopdong.idHopDong 
 left join dichvudikem on dichvudikem.idDichVuDiKem = hopdongchitiet.idDichVuDiKem
-group by khachhang.idKhachHang;
+group by hopdong.idhopdong;
 
 -- task 6
 select dichVu.iddichvu, dichvu.tendichvu, dichvu.dientich, dichvu.chiphithue, loaidichvu.tenloaidichvu, hopdong.ngayLamHopDong 
@@ -172,12 +172,11 @@ join hopdong on dichvu.idDichVu = hopdong.iddichvu
 where not (month(hopdong.ngaylamhopdong) in (1,2,3) and year(hopdong.ngaylamhopdong) = 2019);
 
 -- task 7
-select dichvu.iddichvu, khachhang.idKhachHang, dichvu.tendichvu, dichvu.dientich, dichvu.soNguoiToiDa, dichvu.chiphithue, 
-loaidichvu.tenloaidichvu, hopdong.ngayLamHopDong from dichvu
+select dichvu.iddichvu, dichvu.tendichvu, dichvu.dientich, dichvu.soNguoiToiDa, dichvu.chiphithue, 
+loaidichvu.tenloaidichvu from dichvu
 join loaidichvu on loaidichvu.idLoaiDichVu = dichvu.idLoaiDichVu 
-join hopdong on hopdong.iddichvu = dichvu.idDichVu 
-join khachhang on khachhang.idKhachHang = hopdong.idKhachHang 
-where (year(hopdong.ngaylamhopdong) = 2018) and not (year(hopdong.ngaylamhopdong) = 2019);
+where exists(select hopdong.idhopdong from hopdong where year(hopdong.ngaylamhopdong) = '2018' and hopdong.iddichvu = dichvu.idDichVu)
+and not exists(select hopdong.idhopdong from hopdong where year(hopdong.ngaylamhopdong) = '2019' and hopdong.iddichvu = dichvu.idDichVu);
 
 -- task 8: hien thi thong tin hotenkhachhang khong trung nhau theo 3 cach
 -- cach 1:
@@ -226,13 +225,85 @@ and khachhang.idkhachhang not in
 (select hopdong.idkhachhang from hopdong where month(hopdong.ngaylamhopdong) in(1,2,3,4,5,6))
 group by khachhang.hoten;
 -- task 13
-Create view dichvudikem_max
-as (select dichvudikem.tendichvudikem as ten, (sum(hopdongchitiet.soluong)) as tongtien from dichvudikem
-join hopdongchitiet on hopdongchitiet.iddichvudikem = dichvudikem.idDichVuDiKem 
-group by hopdongchitiet.idDichVuDiKem);
-drop view dichvudikem_max;
-select ten, max(tongtien) as tongtien from dichvudikem_max
-group by ten
-having (tongtien) in (select max(tongtien) from dichvudikem_max);
+-- Create view dichvudikem_max
+-- as (select dichvudikem.tendichvudikem as ten, (sum(hopdongchitiet.soluong)) as tongtien from dichvudikem
+-- join hopdongchitiet on hopdongchitiet.iddichvudikem = dichvudikem.idDichVuDiKem 
+-- group by hopdongchitiet.idDichVuDiKem);
+-- drop view dichvudikem_max;
+-- select ten, max(tongtien) as tongtien from dichvudikem_max
+-- group by ten
+-- having (tongtien) in (select max(tongtien) from dichvudikem_max);
+create temporary table bangtam
+select dichvudikem.tendichvudikem as ten_dich_vu_di_kem, count(hopdongchitiet.iddichvudikem) as so_lan_su_dung from hopdongchitiet
+inner join dichvudikem on dichvudikem.iddichvudikem = hopdongchitiet.iddichvudikem 
+group by dichvudikem.tendichvudikem;
+select * from bangtam;
+create temporary table bangtam1 
+select max(bangtam.so_lan_su_dung) as max_so_lan_su_dung from bangtam;
+select * from bangtam1;
+select bangtam.ten_dich_vu_di_kem, bangtam.so_lan_su_dung from bangtam 
+inner join bangtam1 on bangtam.so_lan_su_dung = bangtam1.max_so_lan_su_dung;
+drop temporary table bangtam;
+drop temporary table bangtam1; 
+-- task 14
+select hopdong.idHopDong, loaidichvu.tenloaidichvu, dichvudikem.tendichvudikem, count(hopdongchitiet.iddichvudikem) as soLanSuDung 
+from hopdong 
+join dichvu on hopdong.iddichvu = dichvu.idDichVu 
+join loaidichvu on loaidichvu.idLoaiDichVu = dichvu.idLoaiDichVu 
+join hopdongchitiet on hopdongchitiet.idHopDong = hopdong.idHopDong 
+join dichvudikem on dichvudikem.idDichVuDiKem = hopdongchitiet.idDichVuDiKem 
+group by hopdongchitiet.idDichVuDiKem 
+having solansudung = 1;
+select hopdong.idhopdong, loaidichvu.tenloaidichvu, dichvudikem.tendichvudikem, count(hopdongchitiet.idDichVuDiKem) as so_lan_su_dung 
+from hopdong 
+inner join dichvu on hopdong.idhopdong = dichvu.idDichVu 
+inner join loaidichvu on loaidichvu.idLoaiDichVu = dichvu.idloaidichvu 
+inner join hopdongchitiet on hopdongchitiet.idhopdong = hopdong.idhopdong 
+inner join dichvudikem on dichvudikem.idDichVuDiKem = hopdongchitiet.idDichVuDiKem 
+group by dichvudikem.tendichvudikem having so_lan_su_dung = 1;
+-- task 15
+select nhanvien.idnhanvien, nhanvien.hoten, trinhdo.trinhdo, bophan.tenbophan, nhanvien.sdt, nhanvien.diachi, count(hopdong.idnhanvien) 
+as soLanLamHopDong from nhanvien 
+join trinhdo on trinhdo.idTrinhDo = nhanvien.idTrinhDo 
+join bophan on bophan.idBoPhan = nhanvien.idBoPhan 
+join hopdong on hopdong.idNhanVien = nhanvien.idNhanVien 
+where year(hopdong.ngaylamhopdong) between 2018 and 2019 
+group by hopdong.idNhanVien 
+having solanlamhopdong < 4 order by nhanvien.idNhanVien;
+-- task 16
+SET SQL_SAFE_UPDATES = 0;
+delete from nhanvien where not exists (select nhanvien.idNhanVien from hopdong 
+where hopdong.ngaylamhopdong between '2017-01-01' and '2019-12-31' and hopdong.idnhanvien = nhanvien.idnhanvien); 
+-- task 17
+update khachhang set khachhang.idLoaiKhach = 1 where khachhang.idLoaiKhach = 2 and khachhang.idKhachHang in 
+(select a from (select khachhang.idkhachhang as a from khachhang
+join hopdong on khachhang.idKhachHang = hopdong.idKhachHang
+where tongtien > 500 and year(ngaylamhopdong) = 2019
+group by khachhang.idKhachHang) as view_tam);
+update khachhang, (select hopdong.idKhachHang as id, sum(hopdong.tongtien) as tong_tien from hopdong 
+where year(hopdong.ngaylamhopdong) = 2019 
+group by hopdong.idkhachhang 
+having tong_Tien > 500) as bangtam set khachhang.idloaikhach = (select loaikhach.idloaikhach from loaikhach 
+where loaikhach.tenloaikhach = 'Diamond') where khachhang.idloaikhach = (select loaikhach.idloaikhach from loaikhach 
+where loaikhach.tenloaikhach = 'Platinum') 
+and bangtam.id = khachhang.idkhachhang;
+-- task 18
+delete khachhang, hopdong, hopdongchitiet from khachhang 
+inner join hopdong on khachhang.idKhachHang = hopdong.idkhachhang 
+inner join hopdongchitiet on hopdongchitiet.idHopDong = hopdong.idHopDong 
+where not exists(select hopdong.idHopDong where year(hopdong.ngaylamhopdong) > '2016' and khachhang.idkhachhang = hopdong.idkhachhang);
+-- task 19
+update dichvudikem inner join (select dichvudikem.tendichvudikem as ten_dich_vu_di_kem 
+from hopdongchitiet inner join dichvudikem on dichvudikem.idDichVuDiKem = hopdongchitiet.idDichVuDiKem 
+group by dichvudikem.iddichvudikem 
+having count(hopdongchitiet.idDichVuDiKem) > 3) as bangtam set dichvudikem.gia = dichvudikem.gia * 2 
+where dichvudikem.tendichvudikem = bangtam.ten_dich_vu_di_kem;
+-- task 20
+select nhanvien.idnhanvien as id, nhanvien.hoten, nhanvien.email, nhanvien.sdt, nhanvien.ngaysinh, nhanvien.diachi, 'nhanvien' as tu_bang 
+from nhanvien 
+union all
+select khachhang.idkhachhang as id, khachhang.hoten, khachhang.email, khachhang.sdt, khachhang.ngaySinh, khachhang.diaChi, 'khachhang' as fromtable 
+from khachhang;
+
 
 
