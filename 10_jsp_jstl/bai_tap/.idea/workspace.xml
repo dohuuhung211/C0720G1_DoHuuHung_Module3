@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a3664521-b975-4ced-9892-1533131310a4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../09_tong_quan_ung_dung_web/bai_tap/web/WEB-INF/lib/jstl-1.2.jar/jstl-1.2.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../09_tong_quan_ung_dung_web/bai_tap/01_product_discount_calculator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../09_tong_quan_ung_dung_web/bai_tap/01_product_discount_calculator.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../09_tong_quan_ung_dung_web/thuc_tap/02_tao_web_dang_nhap_va_hien_thi_loi_chao/src/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../09_tong_quan_ung_dung_web/thuc_tap/02_tao_web_dang_nhap_va_hien_thi_loi_chao/src/LoginServlet.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="G:\C0720G1_Do_Huu_Hung\module3\10_jsp_jstl\bai_tap\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1jm3GNh14FtVi92sBfxfrtrYarq" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Tomcat 9.0.39" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.39" ALTERNATIVE_JRE_ENABLED="false">
+      <deployment>
+        <artifact name="01_quan_ly_danh_sach_khach_hang:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/01_quan_ly_danh_sach_khach_hang_war_exploded" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings />
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="01_quan_ly_danh_sach_khach_hang:war exploded" />
+        </option>
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a3664521-b975-4ced-9892-1533131310a4" name="Default Changelist" comment="" />
+      <created>1604395342243</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1604395342243</updated>
+      <workItem from="1604395347326" duration="51000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="549" y="154" key="FileChooserDialogImpl" timestamp="1604395394574">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="154" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1604395394574" />
+    <state x="209" y="0" key="new project wizard" timestamp="1604395396010">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="209" y="0" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1604395396010" />
+  </component>
+</project>
