@@ -25,7 +25,7 @@
           <tr>
             <td>Operator:</td>
             <td>
-              <select>
+              <select name="toantu">
                 <option value="+">Cong</option>
                 <option value="-">Tru</option>
                 <option value="*">Nhan</option>

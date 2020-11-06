@@ -11,9 +11,9 @@ public class Cal {
                 if (sohai != 0){
                     return somot / sohai;
                 } else {
-                    throw new RuntimeException("Co loi: khong the chia cho 0");
+                    throw new RuntimeException("Can't division by 0");
                 } default:
-                    throw new RuntimeException("Sai dinh dang");
+                    throw new RuntimeException("Invalid error");
         }
     }
 }

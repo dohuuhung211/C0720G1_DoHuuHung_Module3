@@ -9,14 +9,18 @@ import java.io.PrintWriter;
 @WebServlet(name = "CalculatorServlet", urlPatterns = "/index")
 public class CalculatorServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        float somot = Float.parseFloat(request.getParameter("so-mot"));
-        float sohai = Float.parseFloat(request.getParameter("so-hai"));
+        float somot = Integer.parseInt(request.getParameter("so-mot"));
+        float sohai = Integer.parseInt(request.getParameter("so-hai"));
         char toantu = request.getParameter("toantu").charAt(0);
-        float result = Cal.calculator(somot, sohai, toantu);
         PrintWriter writer = response.getWriter();
         writer.println("<html>");
         writer.println("<h1>Result: </h1>");
-        writer.println(somot + " " + sohai + " = " + result);
+        try {
+            float result = Cal.calculator(somot, sohai, toantu);
+            writer.println(somot + " " + toantu + " " + sohai + " = " + result);
+        } catch (RuntimeException e){
+            writer.println("Error: " + e.getMessage());
+        }
         writer.println("</html>");
     }
 
