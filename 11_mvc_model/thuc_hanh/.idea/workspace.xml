@@ -2,38 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5cadfcac-432b-4844-aa29-b2beede90a15" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/01_ung_dung_quan_ly_khach_hang/out/artifacts/01_ung_dung_quan_ly_khach_hang_war_exploded/WEB-INF/classes/controller/CustomerServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_ung_dung_quan_ly_khach_hang/out/artifacts/01_ung_dung_quan_ly_khach_hang_war_exploded/WEB-INF/classes/model/Customer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_ung_dung_quan_ly_khach_hang/out/artifacts/01_ung_dung_quan_ly_khach_hang_war_exploded/WEB-INF/classes/repository/CustomerRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_ung_dung_quan_ly_khach_hang/out/artifacts/01_ung_dung_quan_ly_khach_hang_war_exploded/WEB-INF/classes/repository/CustomerRepositoryImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_ung_dung_quan_ly_khach_hang/out/artifacts/01_ung_dung_quan_ly_khach_hang_war_exploded/WEB-INF/classes/service/CustomerService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_ung_dung_quan_ly_khach_hang/out/artifacts/01_ung_dung_quan_ly_khach_hang_war_exploded/WEB-INF/classes/service/CustomerServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_ung_dung_quan_ly_khach_hang/out/artifacts/01_ung_dung_quan_ly_khach_hang_war_exploded/WEB-INF/lib/jstl-1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_ung_dung_quan_ly_khach_hang/out/artifacts/01_ung_dung_quan_ly_khach_hang_war_exploded/WEB-INF/lib/jstl-api-1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_ung_dung_quan_ly_khach_hang/out/artifacts/01_ung_dung_quan_ly_khach_hang_war_exploded/WEB-INF/lib/jstl-impl-1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_ung_dung_quan_ly_khach_hang/out/artifacts/01_ung_dung_quan_ly_khach_hang_war_exploded/WEB-INF/lib/mysql-connector-java-8.0.17.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_ung_dung_quan_ly_khach_hang/out/artifacts/01_ung_dung_quan_ly_khach_hang_war_exploded/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_ung_dung_quan_ly_khach_hang/out/artifacts/01_ung_dung_quan_ly_khach_hang_war_exploded/create.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_ung_dung_quan_ly_khach_hang/out/artifacts/01_ung_dung_quan_ly_khach_hang_war_exploded/delete.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_ung_dung_quan_ly_khach_hang/out/artifacts/01_ung_dung_quan_ly_khach_hang_war_exploded/edit.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_ung_dung_quan_ly_khach_hang/out/artifacts/01_ung_dung_quan_ly_khach_hang_war_exploded/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_ung_dung_quan_ly_khach_hang/out/artifacts/01_ung_dung_quan_ly_khach_hang_war_exploded/lib/jsp-api-2.1-6.0.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_ung_dung_quan_ly_khach_hang/out/artifacts/01_ung_dung_quan_ly_khach_hang_war_exploded/lib/jstl-api-1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_ung_dung_quan_ly_khach_hang/out/artifacts/01_ung_dung_quan_ly_khach_hang_war_exploded/lib/jstl-impl-1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_ung_dung_quan_ly_khach_hang/out/artifacts/01_ung_dung_quan_ly_khach_hang_war_exploded/lib/mysql-connector-java-8.0.17.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_ung_dung_quan_ly_khach_hang/out/artifacts/01_ung_dung_quan_ly_khach_hang_war_exploded/lib/servlet-api-2.5-6.0.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_ung_dung_quan_ly_khach_hang/out/artifacts/01_ung_dung_quan_ly_khach_hang_war_exploded/list.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_ung_dung_quan_ly_khach_hang/out/artifacts/01_ung_dung_quan_ly_khach_hang_war_exploded/view.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_ung_dung_quan_ly_khach_hang/out/production/01_ung_dung_quan_ly_khach_hang/controller/CustomerServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_ung_dung_quan_ly_khach_hang/out/production/01_ung_dung_quan_ly_khach_hang/model/Customer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_ung_dung_quan_ly_khach_hang/out/production/01_ung_dung_quan_ly_khach_hang/repository/CustomerRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_ung_dung_quan_ly_khach_hang/out/production/01_ung_dung_quan_ly_khach_hang/repository/CustomerRepositoryImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_ung_dung_quan_ly_khach_hang/out/production/01_ung_dung_quan_ly_khach_hang/service/CustomerService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_ung_dung_quan_ly_khach_hang/out/production/01_ung_dung_quan_ly_khach_hang/service/CustomerServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_ung_dung_quan_ly_khach_hang/src/controller/CustomerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/01_ung_dung_quan_ly_khach_hang/src/controller/CustomerServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_ung_dung_quan_ly_khach_hang/src/repository/CustomerRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/01_ung_dung_quan_ly_khach_hang/src/repository/CustomerRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_ung_dung_quan_ly_khach_hang/src/service/CustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/01_ung_dung_quan_ly_khach_hang/src/service/CustomerServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_ung_dung_quan_ly_khach_hang/web/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/01_ung_dung_quan_ly_khach_hang/web/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../demo_10-11-2020/src/controller/StudentServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../demo_10-11-2020/src/dao/StudentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../demo_10-11-2020/src/dao/StudentServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../demo_10-11-2020/src/model/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../demo_10-11-2020/src/service/StudentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../demo_10-11-2020/src/service/StudentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/out/artifacts/01_quan_ly_khach_hang_war_exploded/WEB-INF/classes/controller/UserServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/out/artifacts/01_quan_ly_khach_hang_war_exploded/WEB-INF/classes/controller/UserServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/out/artifacts/01_quan_ly_khach_hang_war_exploded/WEB-INF/classes/repository/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/out/artifacts/01_quan_ly_khach_hang_war_exploded/WEB-INF/classes/repository/UserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/out/artifacts/01_quan_ly_khach_hang_war_exploded/WEB-INF/classes/repository/UserRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/out/artifacts/01_quan_ly_khach_hang_war_exploded/WEB-INF/classes/repository/UserRepositoryImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/out/artifacts/01_quan_ly_khach_hang_war_exploded/WEB-INF/classes/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/out/artifacts/01_quan_ly_khach_hang_war_exploded/WEB-INF/classes/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/out/artifacts/01_quan_ly_khach_hang_war_exploded/WEB-INF/classes/service/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/out/artifacts/01_quan_ly_khach_hang_war_exploded/WEB-INF/classes/service/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/out/artifacts/01_quan_ly_khach_hang_war_exploded/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/out/artifacts/01_quan_ly_khach_hang_war_exploded/create.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/out/artifacts/01_quan_ly_khach_hang_war_exploded/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/out/artifacts/01_quan_ly_khach_hang_war_exploded/edit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/out/artifacts/01_quan_ly_khach_hang_war_exploded/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/out/production/01_quan_ly_khach_hang/controller/UserServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/out/production/01_quan_ly_khach_hang/controller/UserServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/out/production/01_quan_ly_khach_hang/repository/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/out/production/01_quan_ly_khach_hang/repository/UserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/out/production/01_quan_ly_khach_hang/repository/UserRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/out/production/01_quan_ly_khach_hang/repository/UserRepositoryImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/out/production/01_quan_ly_khach_hang/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/out/production/01_quan_ly_khach_hang/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/out/production/01_quan_ly_khach_hang/service/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/out/production/01_quan_ly_khach_hang/service/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/src/controller/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/src/controller/UserServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/src/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/src/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/src/repository/UserRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/src/repository/UserRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/src/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/src/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/src/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/src/service/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/web/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/web/create.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/web/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/web/edit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../13_jdbc_querying_transaction/thuc_hanh/01_quan_ly_khach_hang/web/index.jsp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +63,7 @@
       <option name="presentableId" value="Default" />
       <updated>1604649036387</updated>
       <workItem from="1604649037787" duration="72000" />
+      <workItem from="1604915238811" duration="18000" />
     </task>
     <servers />
   </component>
@@ -74,9 +71,9 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1604649107617">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1604915255567">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1604649107617" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1604915255567" />
   </component>
 </project>

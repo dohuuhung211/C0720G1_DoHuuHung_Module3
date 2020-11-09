@@ -23,10 +23,6 @@ public class CustomerServiceImpl implements CustomerService{
         return customerRepository.getAllCustomer();
     }
 
-    @Override
-    public void saveCustomer(Customer customer) {
-
-    }
 
     @Override
     public void deleteCustomer(int id) {

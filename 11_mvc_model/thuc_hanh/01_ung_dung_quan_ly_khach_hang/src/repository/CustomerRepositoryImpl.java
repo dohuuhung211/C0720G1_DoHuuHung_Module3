@@ -77,10 +77,6 @@ public class CustomerRepositoryImpl implements CustomerRepository {
         return customers;
     }
 
-    @Override
-    public void saveCustomer(Customer customer) {
-
-    }
 
     @Override
     public void deleteCustomer(int id) throws SQLException {
