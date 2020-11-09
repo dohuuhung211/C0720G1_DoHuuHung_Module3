@@ -37,7 +37,17 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 
     @Override
     public void create(Customer customer) {
-
+        System.out.println(INSERT_CUSTOMER_SQL);
+        // try-with-resource statement will auto close the connection.
+        try (Connection connection = getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(INSERT_CUSTOMER_SQL)) {
+            preparedStatement.setString(1, customer.getName());
+            preparedStatement.setString(2, customer.getEmail());
+            preparedStatement.setString(3, customer.getAddress());
+            System.out.println(preparedStatement);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
     }
 
     @Override
@@ -104,12 +114,13 @@ public class CustomerRepositoryImpl implements CustomerRepository {
             preparedStatement.setInt(1, id);
             // Step 3: Execute the query or update query
             ResultSet rs = preparedStatement.executeQuery();
+            System.out.println(rs);
             // Step 4: Process the ResultSet object.
             while (rs.next()) {
                 String name = rs.getString("name");
                 String email = rs.getString("email");
-                String country = rs.getString("country");
-                customers = new Customer(id, name, email, country);
+                String address = rs.getString("address");
+                customers = new Customer(id, name, email, address);
             }
         } catch (SQLException e) {
             printSQLException(e);

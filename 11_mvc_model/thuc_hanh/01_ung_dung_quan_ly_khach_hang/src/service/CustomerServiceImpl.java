@@ -15,6 +15,7 @@ public class CustomerServiceImpl implements CustomerService{
 
     @Override
     public void create(Customer customer) {
+        customerRepository.create(customer);
     }
 
     @Override

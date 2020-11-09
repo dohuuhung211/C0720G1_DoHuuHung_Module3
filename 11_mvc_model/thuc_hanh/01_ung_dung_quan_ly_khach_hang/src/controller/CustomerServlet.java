@@ -40,7 +40,8 @@ public class CustomerServlet extends HttpServlet {
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String address = request.getParameter("address");
-        List<Customer> customerList = customerService.getAllCustomer();
+//        List<Customer> customerList = customerService.getAllCustomer();
+
         Customer customer = new Customer(name, email, address);
         customerService.create(customer);
         getAllCustomer(request,response);
@@ -53,11 +54,9 @@ public class CustomerServlet extends HttpServlet {
         String address = request.getParameter("address");
         Customer customer = new Customer(id, name, email, address);
         customerService.editCustomer(id, customer);
-        try {
-            response.sendRedirect("/home");
-        } catch (IOException e){
-            e.printStackTrace();
-        }
+
+        getAllCustomer(request,response);
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -84,6 +83,7 @@ public class CustomerServlet extends HttpServlet {
     private void editPage(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         Customer customer = customerService.findById(id);
+        System.out.println(customer);
         request.setAttribute("customer", customer);
         RequestDispatcher dispatcher = request.getRequestDispatcher("edit.jsp");
         try {
