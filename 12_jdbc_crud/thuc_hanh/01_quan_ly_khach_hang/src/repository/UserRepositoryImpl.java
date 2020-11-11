@@ -36,8 +36,6 @@ public class UserRepositoryImpl implements UserRepository{
     }
     @Override
     public void createUser(User user) {
-        System.out.println(INSERT_USER_SQL);
-        // try-with-resource statement will auto close the connection.
         try (Connection connection = getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USER_SQL)) {
             preparedStatement.setString(1, user.getName());
             preparedStatement.setString(2, user.getEmail());

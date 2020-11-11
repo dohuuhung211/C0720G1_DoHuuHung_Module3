@@ -16,13 +16,14 @@ public class StudentDAOImpl implements StudentDAO {
 
     private static final String SELECT_STUDENTS_BY_ID = "select id,name,birthday,address from students where id =?";
     private static final String SELECT_ALL_STUDENTS = "select * from students";
-    private static final String DELETE_STUDENTS_SQL = "delete from students where id = ?;";
+    private static final String DELETE_STUDENTS_SQL = "delete from studen" +
+            "ts where id = ?;";
     private static final String UPDATE_STUDENTS_SQL = "update students set name = ?, birthday = ?, address =? where id = ?;";
     private static final String SEARCH_STUDENTS_BY_NAME = "select * from students where name like ?;";
     protected Connection getConnection() {
         Connection connection = null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
         } catch (SQLException e) {
             // TODO Auto-generated catch block

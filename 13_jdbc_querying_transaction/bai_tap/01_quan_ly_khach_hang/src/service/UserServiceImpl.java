@@ -9,30 +9,34 @@ import java.util.List;
 
 public class UserServiceImpl implements UserService{
     private UserRepository userRepository = new UserRepositoryImpl();
-
     @Override
-    public void insertUser(User user) throws SQLException {
-        userRepository.insertUser(user);
+    public void createUser(User user) {
+        userRepository.createUser(user);
     }
 
     @Override
-    public User selectUser(int id) {
-        return userRepository.selectUser(id);
+    public void editUser(int id, User user) {
+        userRepository.editUser(id, user);
     }
 
     @Override
-    public List<User> selectAllUsers() {
-        return userRepository.selectAllUsers();
+    public List<User> getAllUser() {
+        return userRepository.getAllUser();
     }
 
     @Override
-    public boolean deleteUser(int id) throws SQLException {
-        return userRepository.deleteUser(id);
+    public void deleteUserById(int id) {
+        userRepository.deleteUserById(id);
     }
 
     @Override
-    public boolean updateUser(User user) throws SQLException {
-        return userRepository.updateUser(user);
+    public User findUserById(int id) {
+        return userRepository.findUserById(id);
+    }
+
+    @Override
+    public List<User> searchUserByName(String name) {
+        return userRepository.searchUserByName(name);
     }
 
     @Override
@@ -46,8 +50,8 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public void addUserTransaction(User user, int[] permision) {
-        userRepository.addUserTransaction(user, permision);
+    public void addUserTransaction(User user, int[] permission) {
+        userRepository.addUserTransaction(user,permission);
     }
 
     @Override
@@ -58,5 +62,15 @@ public class UserServiceImpl implements UserService{
     @Override
     public void insertUpdateUseTransaction() {
         userRepository.insertUpdateUseTransaction();
+    }
+
+    @Override
+    public List<User> getAllUserDB() {
+        return userRepository.getAllUserDB();
+    }
+
+    @Override
+    public void editUserDB(int id, User user) {
+        userRepository.editUserDB(id, user);
     }
 }

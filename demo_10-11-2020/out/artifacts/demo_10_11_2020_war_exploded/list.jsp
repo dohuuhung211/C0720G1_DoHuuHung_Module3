@@ -38,7 +38,7 @@
         </tr>
         </c:forEach>
     </table>
-    <form method="post" action="/student">
+    <form method="post" action="/student" style="text-align: center">
         <input type="hidden">
         <input type="text" placeholder="Input name" name="name">
         <button type="submit" name="action" value="search">Tim Kiem</button>

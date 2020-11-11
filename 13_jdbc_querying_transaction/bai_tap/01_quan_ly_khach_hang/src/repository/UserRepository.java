@@ -6,20 +6,17 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface UserRepository {
-    public void insertUser(User user) throws SQLException;
-
-    public User selectUser(int id);
-
-    public List<User> selectAllUsers();
-
-    public boolean deleteUser(int id) throws SQLException;
-
-    public boolean updateUser(User user) throws SQLException;
-
+    void createUser(User user);
+    void editUser(int id, User user);
+    List<User> getAllUser();
+    void deleteUserById(int id);
+    User findUserById(int id);
+    List<User> searchUserByName(String name);
     public User getUserById(int id);
-
     public void insertUserStore(User user) throws SQLException;
-    public void addUserTransaction(User user, int[] permision);
+    public void addUserTransaction(User user, int[] permission);
     public void insertUpdateWithoutTransaction();
     public void insertUpdateUseTransaction();
+    List<User> getAllUserDB();
+    void editUserDB(int id, User user);
 }

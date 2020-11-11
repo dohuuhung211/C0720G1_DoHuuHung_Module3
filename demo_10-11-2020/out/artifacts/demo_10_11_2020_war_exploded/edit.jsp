@@ -22,6 +22,7 @@
     <label>Address</label>
     <input type="text" name="address" value="<c:out value="${student.address}"/>" placeholder="Input address">
     <input type="submit" value="Edit">
+    </button>
 </form>
 </body>
 </html>
