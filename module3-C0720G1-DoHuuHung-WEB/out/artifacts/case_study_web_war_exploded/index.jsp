@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>$Title$</title>
+    <title>Welcom to Four Seasons Resort</title>
     <link rel="stylesheet" type="text/css" href="index.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   </head>
@@ -45,16 +45,16 @@
                 <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Employee</a>
+                <a class="nav-link" href="/employee">Employee</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/customer">Customer</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Service</a>
+                <a class="nav-link" href="/service">Service</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Contract</a>
+                <a class="nav-link" href="/contract">Contract</a>
               </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -92,16 +92,16 @@
               </ol>
               <div class="carousel-inner">
                 <div class="carousel-item active">
-                  <img class="d-block w-100" src="images/slide1.jpg" alt="First slide">
+                  <img class="d-block w-100" src="images/slide3.jpg" alt="First slide">
                 </div>
                 <div class="carousel-item">
                   <img class="d-block w-100" src="images/slide2.jpg" alt="Second slide">
                 </div>
                 <div class="carousel-item">
-                  <img class="d-block w-100" src="images/slide3.jpg" alt="Third slide">
+                  <img class="d-block w-100" src="images/slide4.jpg" alt="Third slide">
                 </div>
                 <div class="carousel-item">
-                  <img class="d-block w-100" src="images/slide4.jpg" alt="Four slide">
+                  <img class="d-block w-100" src="images/slide1.jpg" alt="Four slide">
                 </div>
               </div>
               <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

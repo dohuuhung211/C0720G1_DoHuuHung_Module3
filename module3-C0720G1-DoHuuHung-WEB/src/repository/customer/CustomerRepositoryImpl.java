@@ -121,6 +121,8 @@ public class CustomerRepositoryImpl implements CustomerRepository {
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            DBConnection.close();
         }
     }
 
@@ -166,6 +168,28 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 
     @Override
     public List<Customer> searchCustomerByName(String name) {
-        return null;
+        List<Customer> customerList = new ArrayList<>();
+        try(Connection connection = getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(SEARCH_CUSTOMER_BY_NAME)){
+            preparedStatement.setString(1, "%" + name + "%");
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()){
+                int id = rs.getInt("customer_id");
+                String name1 = rs.getString("customer_name");
+                String birthday = rs.getString("customer_birthday");
+                String gender = rs.getString("customer_gender");
+                String idCard = rs.getString("customer_id_card");
+                String phoneNumb = rs.getString("customer_phone");
+                String email = rs.getString("customer_email");
+                String address = rs.getString("customer_address");
+                String typeCustomer = rs.getString("customer_type_id");
+                customerList.add(new Customer(id, name1, birthday, gender, idCard, phoneNumb, email, address, typeCustomer));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DBConnection.close();
+        }
+        return customerList;
     }
 }

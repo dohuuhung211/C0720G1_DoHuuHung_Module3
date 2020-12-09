@@ -304,6 +304,59 @@ from nhanvien
 union all
 select khachhang.idkhachhang as id, khachhang.hoten, khachhang.email, khachhang.sdt, khachhang.ngaySinh, khachhang.diaChi, 'khachhang' as fromtable 
 from khachhang;
-
-
+-- task 21
+create view v_nhanvien as
+select distinct nhanvien.* from nhanvien 
+join hopdong on nhanvien.idNhanVien = hopdong.idNhanVien 
+where nhanvien.diaChi = "Hải Châu" and hopdong.ngaylamhopdong = "2019-12-12";
+SET SQL_SAFE_UPDATES = 0;
+-- task22
+update nhanvien set nhanvien.diachi = "Liên Chiểu" where idNhanVien in (select idNhanVien from v_nhanvien); 
+-- task23
+DELIMiTER //
+create procedure sp_1(in idKhachHang int) 
+BEGIN
+	delete khachhang from khachhang where khachhang.idKhachHang = idKhachHang;
+END //
+DELIMITER ;
+call sp_1(5);    
+-- task 24
+DELIMITER //
+drop procedure if exists sp_2 //
+create procedure sp_2(in idHopDong int, in idNhanVien int, in idKhachHang int, in idDichVu int, in ngaylamhopdong date, 
+in ngayketthuc date, in tiendatcoc double, in tongtien double)
+BEGIN
+	set @x = (select count(idHopDong) from hopdong where hopdong.idHopDong = idHopDong group by hopdong.idHopDong);
+    IF((@x is null))
+	and (select idNhanVien from nhanvien where nhanvien.idNhanVien = idNhanVien) 
+	and (select idKhachHang from khachhang where khachhang.idkhachhang = idKhachHang)
+	and (select idDichVu from dichvu where dichvu.iddichvu = idDichVu) then 
+    insert into hopDong values (idHopDong, idNhanVien, idKhachHang, idDichVu, ngaylamhopdong, ngayketthuc, tiendatcoc, tongtien);
+    else 
+    signal sqlstate '45000' set message_text = 'Du lieu sai';
+    end if;
+END //
+DELIMITER ;
+-- task 25
+DELIMITER //
+drop trigger if exists tr_1 //
+create trigger tr_1 after delete on hopdong for each row
+begin
+	set @x = (select count(*) as count from hopdong);
+end ; //
+DELIMITER ;
+set @x = 0;
+delete from hopdong where hopdong.idhopdong = 10;
+select @x as 'total amount deleted';
+-- task 26 
+DELIMITER //
+drop trigger if exists tr_2 //
+create trigger tr_2 after update on hopdong for each row 
+begin 
+	if datediff(new.ngayketthuc, old.ngaylamhopdong) < 2 then
+    signal sqlstate '45000' set message_text = 'Ngay ket thuc phai lon hon ngay lam hop dong it nhat 2 ngay';
+    end if;
+end; //
+DELIMITER //
+update hopdong set ngayketthuc = '2018-02-20' where (idHopDong = '3');
 

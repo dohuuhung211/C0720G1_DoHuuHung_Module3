@@ -101,7 +101,17 @@ public class CustomerServlet extends HttpServlet {
     }
 
     private void searchCustomerByName(HttpServletRequest request, HttpServletResponse response) {
-
+        String name = request.getParameter("name");
+        List<Customer> customerList = customerService.searchCustomerByName(name);
+        request.setAttribute("customerList", customerList);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("customer/list.jsp");
+        try {
+            dispatcher.forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void editCustomer(HttpServletRequest request, HttpServletResponse response) {

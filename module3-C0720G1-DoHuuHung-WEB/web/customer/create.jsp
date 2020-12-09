@@ -48,15 +48,15 @@
         </div>
         <div class="form-group">
             <label>Type customer:</label>
-<%--            <label>Customer Type</label>--%>
-<%--            <select class="form-control" name="customer_type_id">--%>
-<%--                <option value="1">Diamond</option>--%>
-<%--                <option value="2">Platinum</option>--%>
-<%--                <option value="3">Gold</option>--%>
-<%--                <option value="4">Silver</option>--%>
-<%--                <option value="5">Member</option>--%>
-<%--            </select>--%>
-            <input type="text" class="form-control" placeholder="Input Type Customer" name="customer_type_id">
+            <label>Customer Type</label>
+            <select class="form-control" name="customer_type_id">
+                <option value="1">Diamond</option>
+                <option value="2">Platinum</option>
+                <option value="3">Gold</option>
+                <option value="4">Silver</option>
+                <option value="5">Member</option>
+            </select>
+<%--            <input type="text" class="form-control" placeholder="Input Type Customer" name="customer_type_id">--%>
         </div>
         <button type="submit" class="btn btn-primary">Create</button>
     </form>
